@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Ipc;
 
 
 public class BouyomiChanRemoting : MarshalByRefObject {
@@ -19,5 +21,8 @@ public class BouyomiChanRemoting : MarshalByRefObject {
 
 class Program
 {
-    static void Main() => Console.WriteLine("Hello, World!");
+    static void Main()
+    {
+        Console.WriteLine("Hello, World!");
+    }
 }
