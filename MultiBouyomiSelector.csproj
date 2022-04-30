@@ -9,6 +9,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Remoting" />
+    <None Update="settings.xml" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
 </Project>
