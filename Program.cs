@@ -4,6 +4,9 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Ipc;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace FNF.Utility {
     class BouyomiChanRemoting : MarshalByRefObject {
@@ -26,17 +29,18 @@ namespace FNF.Utility {
 
 class BouyomiChanServer
 {
-    FNF.Utility.BouyomiChanRemoting RemotingObjectA;
-    FNF.Utility.BouyomiChanRemoting RemotingObjectB;
+    List<FNF.Utility.BouyomiChanRemoting> RemotingObjectList;
 
     void Talk(object sender, System.EventArgs e)
     {
         Console.WriteLine("TalkText Called");
-        RemotingObjectA.AddTalkTask2("test A");
-        RemotingObjectB.AddTalkTask2("test B");
+        foreach (var RemotingObject in RemotingObjectList)
+        {
+            RemotingObject.AddTalkTask2("Test A");
+        }
     }
 
-    public BouyomiChanServer(FNF.Utility.BouyomiChanRemoting RemotingObjectA, FNF.Utility.BouyomiChanRemoting RemotingObjectB)
+    public BouyomiChanServer(List<FNF.Utility.BouyomiChanRemoting> RemotingObjectList)
     {
         var ServerChannel = new IpcServerChannel("BouyomiChan");
         ChannelServices.RegisterChannel(ServerChannel, false);
@@ -44,8 +48,7 @@ class BouyomiChanServer
         RemotingObject.TalkTextEvent += new EventHandler(Talk);
         RemotingServices.Marshal(RemotingObject, "Remoting", typeof(FNF.Utility.BouyomiChanRemoting));
 
-        this.RemotingObjectA = RemotingObjectA;
-        this.RemotingObjectB = RemotingObjectB;
+        this.RemotingObjectList = RemotingObjectList;
     }
 }
 
@@ -66,12 +69,19 @@ class Program
     {
         Console.WriteLine("Hello, World!");
 
-        var ClientA = new BouyomiChanClient("BouyomiChanA");
-        var ClientB = new BouyomiChanClient("BouyomiChanB");
+        XElement settings = XElement.Load("settings.xml");
+        
+        IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
+        var BouyomiChanList = new List<FNF.Utility.BouyomiChanRemoting>();
+        foreach (XElement el in BouyomiChanLocations) {
+            var BouyomiChan = new BouyomiChanClient("" + el.Name);
+            BouyomiChanList.Add(BouyomiChan.RemotingObject);
+            
+            Console.WriteLine(el.Name);
+        }
 
-        var Server = new BouyomiChanServer(ClientA.RemotingObject, ClientB.RemotingObject);
+        var Server = new BouyomiChanServer(BouyomiChanList);
 
-//        Console.WriteLine(ServerChannel.GetChannelUri());
         Console.ReadLine();
     }
 }
