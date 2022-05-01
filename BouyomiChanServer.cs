@@ -13,8 +13,11 @@ class BouyomiChanServer
     {
         Console.WriteLine("TalkText Called");
         MessageQueue.Enqueue(e.Message);
+    }
+    
+    public void SendText(object sender, EventArgs e)
+    {
         string message;
-
         foreach (var RemotingObject in RemotingObjectList)
         {
             if (!RemotingObject.NowPlaying && MessageQueue.TryDequeue(out message, 3))

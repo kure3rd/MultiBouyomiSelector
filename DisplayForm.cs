@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 class DisplayForm : Form
 {
+    Timer timer;
     BouyomiChanServer Server;
     public DisplayForm(XElement settings)
     {
@@ -18,5 +19,10 @@ class DisplayForm : Form
 
         string IpcServerName = settings.Element("IpcChannelName").Value;
         Server = new BouyomiChanServer(IpcServerName, BouyomiChanList);
+
+        timer = new Timer();
+        timer.Tick += new EventHandler(Server.SendText);
+        timer.Interval = 100;//ms
+        timer.Start();
     }
 }
