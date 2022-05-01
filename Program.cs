@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using System.Collections.Concurrent;
 
 namespace FNF.Utility {
     class BouyomiChanRemoting : MarshalByRefObject {
@@ -24,6 +25,24 @@ namespace FNF.Utility {
         public int  NowTaskId     { get { return 0; }         }
         public bool NowPlaying    { get { return false; }         }
         public bool Pause         { get { return false; } set { } }
+    }
+}
+
+class ConcurrentRingBuffer<T>
+{
+    private ConcurrentQueue<T> _queue;
+    ConcurrentRingBuffer(int capacity)
+    {
+        _queue = new ConcurrentQueue<T>();
+    }
+    public void Enqueue(T data) => _queue.Enqueue(data);
+    public bool TryDequeue(out T result, int tail)
+    {
+        while (_queue.Count >= tail)
+        {
+            _queue.TryDequeue(out result);
+        }
+        return _queue.TryDequeue(out result);
     }
 }
 
