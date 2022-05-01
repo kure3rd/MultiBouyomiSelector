@@ -40,9 +40,9 @@ class BouyomiChanServer
         }
     }
 
-    public BouyomiChanServer(List<FNF.Utility.BouyomiChanRemoting> RemotingObjectList)
+    public BouyomiChanServer(string IpcServerName, List<FNF.Utility.BouyomiChanRemoting> RemotingObjectList)
     {
-        var ServerChannel = new IpcServerChannel("BouyomiChan");
+        var ServerChannel = new IpcServerChannel(IpcServerName);
         ChannelServices.RegisterChannel(ServerChannel, false);
         var RemotingObject = new FNF.Utility.BouyomiChanRemoting();
         RemotingObject.TalkTextEvent += new EventHandler(Talk);
@@ -69,18 +69,20 @@ class Program
     {
         Console.WriteLine("Hello, World!");
 
-        XElement settings = XElement.Load("settings.xml");
-        
+        XElement settings = XElement.Load("settings.xml");   
+
         IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
         var BouyomiChanList = new List<FNF.Utility.BouyomiChanRemoting>();
         foreach (XElement el in BouyomiChanLocations) {
             var BouyomiChan = new BouyomiChanClient("" + el.Name);
             BouyomiChanList.Add(BouyomiChan.RemotingObject);
-            
+
             Console.WriteLine(el.Name);
         }
 
-        var Server = new BouyomiChanServer(BouyomiChanList);
+        string IpcServerName = settings.Element("IpcChannelName").Value;
+        Console.WriteLine(IpcServerName);
+        var Server = new BouyomiChanServer(IpcServerName, BouyomiChanList);
 
         Console.ReadLine();
     }
