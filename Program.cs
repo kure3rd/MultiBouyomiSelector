@@ -36,7 +36,7 @@ namespace FNF.Utility {
 class ConcurrentRingBuffer<T>
 {
     private ConcurrentQueue<T> _queue;
-    ConcurrentRingBuffer(int capacity)
+    public ConcurrentRingBuffer(int capacity)
     {
         _queue = new ConcurrentQueue<T>();
     }
@@ -54,13 +54,20 @@ class ConcurrentRingBuffer<T>
 class BouyomiChanServer
 {
     List<FNF.Utility.BouyomiChanRemoting> RemotingObjectList;
+    ConcurrentRingBuffer<string> MessageQueue;
 
     void Talk(object sender, FNF.Utility.TalkEventArgs e)
     {
         Console.WriteLine("TalkText Called");
+        MessageQueue.Enqueue(e.Message);
+        string message;
+
         foreach (var RemotingObject in RemotingObjectList)
         {
-            RemotingObject.AddTalkTask2(e.Message);
+            if (!RemotingObject.NowPlaying && MessageQueue.TryDequeue(out message, 3))
+            {
+                RemotingObject.AddTalkTask2(message);
+            }
         }
     }
 
@@ -73,6 +80,7 @@ class BouyomiChanServer
         RemotingServices.Marshal(RemotingObject, "Remoting", typeof(FNF.Utility.BouyomiChanRemoting));
 
         this.RemotingObjectList = RemotingObjectList;
+        this.MessageQueue = new ConcurrentRingBuffer<string>(10);
     }
 }
 
