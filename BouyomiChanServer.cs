@@ -9,7 +9,7 @@ class BouyomiChanServer
     List<FNF.Utility.BouyomiChanRemoting> RemotingObjectList;
     ConcurrentRingBuffer<string> MessageQueue;
 
-    void Talk(object sender, FNF.Utility.TalkEventArgs e)
+    void ReceiveText(object sender, FNF.Utility.ReceiveTextEventArgs e)
     {
         Console.WriteLine("TalkText Called");
         MessageQueue.Enqueue(e.Message);
@@ -29,7 +29,7 @@ class BouyomiChanServer
         var ServerChannel = new IpcServerChannel(IpcServerName);
         ChannelServices.RegisterChannel(ServerChannel, false);
         var RemotingObject = new FNF.Utility.BouyomiChanRemoting();
-        RemotingObject.TalkEvent += new FNF.Utility.BouyomiChanRemoting.TalkEventHandler(Talk);
+        RemotingObject.ReceiveTextEvent += new FNF.Utility.BouyomiChanRemoting.ReceiveTextEventHandler(ReceiveText);
         RemotingServices.Marshal(RemotingObject, "Remoting", typeof(FNF.Utility.BouyomiChanRemoting));
 
         this.RemotingObjectList = RemotingObjectList;

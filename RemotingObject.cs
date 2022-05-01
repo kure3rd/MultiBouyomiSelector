@@ -1,18 +1,18 @@
 using System;
 
 namespace FNF.Utility {
-    class TalkEventArgs : EventArgs
+    class ReceiveTextEventArgs : EventArgs
     {
         public string Message;
     }
     class BouyomiChanRemoting : MarshalByRefObject {
-        public delegate void TalkEventHandler(object sender, TalkEventArgs e);
-        public event TalkEventHandler TalkEvent;
-        public void AddTalkTask (string sTalkText) { var e = new TalkEventArgs(); e.Message = sTalkText; TalkEvent(this, e); }
+        public delegate void ReceiveTextEventHandler(object sender, ReceiveTextEventArgs e);
+        public event ReceiveTextEventHandler ReceiveTextEvent;
+        public void AddTalkTask (string sTalkText) { var e = new ReceiveTextEventArgs(); e.Message = sTalkText; ReceiveTextEvent(this, e); }
         public void AddTalkTask (string sTalkText, int iSpeed, int iVolume, int vType) { AddTalkTask(sTalkText); }
 
         public void AddTalkTask (string sTalkText, int iSpeed, int iTone, int iVolume, int vType) { AddTalkTask(sTalkText); }
-        public int  AddTalkTask2(string sTalkText) { var e = new TalkEventArgs(); e.Message = sTalkText; TalkEvent(this, e); return 0; }
+        public int  AddTalkTask2(string sTalkText) { var e = new ReceiveTextEventArgs(); e.Message = sTalkText; ReceiveTextEvent(this, e); return 0; }
         public int  AddTalkTask2(string sTalkText, int iSpeed, int iTone, int iVolume, int vType) { AddTalkTask2(sTalkText); return 0; }
         public void ClearTalkTasks() { Console.WriteLine("A"); }
         public void SkipTalkTask() { Console.WriteLine("A"); }
