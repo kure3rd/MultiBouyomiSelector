@@ -2,12 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using System.Windows.Forms;
 
-class Program
+public static class Program
 {
-    static void Main()
+    [STAThread]
+    public static void Main()
     {
-        Console.WriteLine("Hello, World!");
+//        Console.WriteLine("Hello, World!");
+        using var form = new Form
+        {
+            FormBorderStyle = FormBorderStyle.Sizable,
+            Text = "Hello WinForms",
+            ClientSize = new System.Drawing.Size(800, 600)
+        };
+
+        form.Show();
 
         XElement settings = XElement.Load("settings.xml");   
 
@@ -24,6 +34,9 @@ class Program
         Console.WriteLine(IpcServerName);
         var Server = new BouyomiChanServer(IpcServerName, BouyomiChanList);
 
-        Console.ReadLine();
+        while (true)
+        {
+            Application.DoEvents();
+        }
     }
 }
