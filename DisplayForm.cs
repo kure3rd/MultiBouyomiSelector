@@ -11,10 +11,10 @@ class DisplayForm : Form
     public DisplayForm(XElement settings)
     {
         IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
-        var BouyomiChanList = new List<FNF.Utility.BouyomiChanRemoting>();
+        var BouyomiChanList = new List<BouyomiChanClient>();
         foreach (XElement element in BouyomiChanLocations) {
-            var BouyomiChan = new BouyomiChanClient("" + element.Name);
-            BouyomiChanList.Add(BouyomiChan.RemotingObject);
+            var client = new BouyomiChanClient("" + element.Name);
+            BouyomiChanList.Add(client);
         }
 
         string IpcServerName = settings.Element("IpcChannelName").Value;
