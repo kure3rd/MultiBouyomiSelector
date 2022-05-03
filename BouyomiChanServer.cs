@@ -20,7 +20,7 @@ class BouyomiChanServer
         string message;
         foreach (var client in ClientList)
         {
-            if (!client.RemotingObject.NowPlaying && MessageQueue.TryDequeue(out message, 3))
+            if (!client.NowPlaying && MessageQueue.TryDequeue(out message, 3))
             {
                 client.RemotingObject.AddTalkTask2(message);
             }

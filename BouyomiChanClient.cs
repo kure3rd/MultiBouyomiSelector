@@ -6,7 +6,7 @@ using System.IO;
 
 class BouyomiChanClient
 {
-    public FNF.Utility.BouyomiChanRemoting RemotingObject;
+    public FNF.Utility.BouyomiChanRemoting RemotingObject = null;
     public BouyomiChanStatus Status;
     public BouyomiChanClient(string IpcChannelName, string DirectoryLocation)
     {
@@ -42,5 +42,8 @@ class BouyomiChanClient
             return false;
         }
         return true;
+    }
+    public bool NowPlaying {
+        get { return RemotingObject is null ? true : RemotingObject.NowPlaying; }
     }
 }
