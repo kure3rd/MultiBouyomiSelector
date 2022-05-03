@@ -3,45 +3,47 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Ipc;
 using System.Xml.Linq;
 using System.IO;
+using System.Diagnostics;
 
 class BouyomiChanClient
 {
     public FNF.Utility.BouyomiChanRemoting RemotingObject = null;
     public BouyomiChanStatus Status;
+    private Process BouyomiChanProcess;
     public BouyomiChanClient(string IpcChannelName, string DirectoryLocation)
     {
-        Status = new BouyomiChanStatus();
-        Status.DirectoryLocation = DirectoryLocation;
-        Status.IpcChannelName = IpcChannelName;
-        if (!CheckChannelName()) return;
+        Status = new BouyomiChanStatus(IpcChannelName, DirectoryLocation);
+        if (Status.ProcessState != ProcessStatus.Runnable) return;
+
+        if (!CheckBouyomiChanRunning())
+        {
+            BouyomiChanProcess = Process.Start(Status.ExeLocation);
+            if (BouyomiChanProcess is null) return;
+            if (!BouyomiChanProcess.WaitForInputIdle()) return;
+        }
 
         var ClientChannel = new IpcClientChannel(IpcChannelName, null); //チャンネル名は何でもいい
         ChannelServices.RegisterChannel(ClientChannel, false);
         RemotingObject = (FNF.Utility.BouyomiChanRemoting)Activator.GetObject(typeof(FNF.Utility.BouyomiChanRemoting), "ipc://"+IpcChannelName+"/Remoting");
 
+        Console.WriteLine(IpcChannelName+":Client Created");
 
         
     }
-    public bool CheckChannelName()
+    private bool CheckBouyomiChanRunning()
     {
-        if(!Directory.Exists(Status.DirectoryLocation))
+        Process[] BouyomiChanProcesses = Process.GetProcessesByName("BouyomiChan");
+        foreach (var process in BouyomiChanProcesses)
         {
-            Status.ProcessState = ProcessState.DirectoryNotFound;
-            return false;
+            string ProcessDirectory = Path.GetDirectoryName(process.MainModule.FileName);
+            Console.WriteLine(ProcessDirectory+":"+Status.DirectoryLocation);
+            if (ProcessDirectory == Status.DirectoryLocation)
+            {
+                BouyomiChanProcess = process;
+                return true;
+            }
         }
-        string BouyomiChanSettingLocation = Path.Combine(Status.DirectoryLocation, "BouyomiChan.setting");
-        if(!File.Exists(BouyomiChanSettingLocation))
-        {
-            Status.ProcessState = ProcessState.SettingNotFound;
-            return false;
-        }
-        XElement BouyomiChanSetting = XElement.Load(BouyomiChanSettingLocation);
-        if (Status.IpcChannelName != BouyomiChanSetting.Element("IpcChannelName").Value)
-        {
-            Status.isConnected = ConnectStatus.DifferentName;
-            return false;
-        }
-        return true;
+        return false;
     }
     public bool NowPlaying {
         get { return RemotingObject is null ? true : RemotingObject.NowPlaying; }
