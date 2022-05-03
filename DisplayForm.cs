@@ -13,7 +13,7 @@ class DisplayForm : Form
         IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
         var BouyomiChanList = new List<BouyomiChanClient>();
         foreach (XElement element in BouyomiChanLocations) {
-            var client = new BouyomiChanClient("" + element.Name);
+            var client = new BouyomiChanClient("" + element.Name, element.Value);
             BouyomiChanList.Add(client);
         }
 

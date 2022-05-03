@@ -18,7 +18,7 @@ public enum ServerStatus
 
 class BouyomiChanStatus
 {
-    public string ExeLocation;
+    public string DirectoryLocation;
     public string ChannelName;
     public string LastTalkText = "";
     public ProcessState ProcessState;

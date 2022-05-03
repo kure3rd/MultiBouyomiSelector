@@ -5,10 +5,17 @@ using System.Runtime.Remoting.Channels.Ipc;
 class BouyomiChanClient
 {
     public FNF.Utility.BouyomiChanRemoting RemotingObject;
-    public BouyomiChanClient(string IpcChannelName)
+    public BouyomiChanStatus Status;
+    public BouyomiChanClient(string IpcChannelName, string DirectoryLocation)
     {
         var ClientChannel = new IpcClientChannel(IpcChannelName, null); //チャンネル名は何でもいい
         ChannelServices.RegisterChannel(ClientChannel, false);
         RemotingObject = (FNF.Utility.BouyomiChanRemoting)Activator.GetObject(typeof(FNF.Utility.BouyomiChanRemoting), "ipc://"+IpcChannelName+"/Remoting");
+
+        Status = new BouyomiChanStatus();
+        Status.DirectoryLocation = DirectoryLocation;
+        Status.ChannelName = IpcChannelName;
+
+        
     }
 }
