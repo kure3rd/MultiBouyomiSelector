@@ -32,6 +32,23 @@ class BouyomiChanClient// : IDisposable
 
         
     }
+    ~BouyomiChanClient()
+    {
+//        Dispose(false);
+    }
+    public void Dispose()
+    {
+//        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+//    protected virtual void Dispose(bool disposing)
+//    {
+//        if (ClientChannel != null)
+//        {
+//            ChannelServices.UnregisterChannel(ClientChannel);
+//            ClientChannel = null;
+//        }
+//    }
     private bool CheckBouyomiChanRunning()
     {
         Process[] BouyomiChanProcesses = Process.GetProcessesByName("BouyomiChan");
