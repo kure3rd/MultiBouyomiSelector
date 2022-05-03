@@ -6,7 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Runtime.Remoting;
 
-class BouyomiChanClient// : IDisposable
+class BouyomiChanClient : IDisposable
 {
     public FNF.Utility.BouyomiChanRemoting RemotingObject = null;
     public BouyomiChanStatus Status;
