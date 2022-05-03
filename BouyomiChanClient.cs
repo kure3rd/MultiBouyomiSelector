@@ -4,12 +4,14 @@ using System.Runtime.Remoting.Channels.Ipc;
 using System.Xml.Linq;
 using System.IO;
 using System.Diagnostics;
+using System.Runtime.Remoting;
 
-class BouyomiChanClient
+class BouyomiChanClient// : IDisposable
 {
     public FNF.Utility.BouyomiChanRemoting RemotingObject = null;
     public BouyomiChanStatus Status;
     private Process BouyomiChanProcess;
+    private IpcClientChannel ClientChannel = null;
     public BouyomiChanClient(string IpcChannelName, string DirectoryLocation)
     {
         Status = new BouyomiChanStatus(IpcChannelName, DirectoryLocation);
@@ -22,7 +24,7 @@ class BouyomiChanClient
             if (!BouyomiChanProcess.WaitForInputIdle()) return;
         }
 
-        var ClientChannel = new IpcClientChannel(IpcChannelName, null); //チャンネル名は何でもいい
+        ClientChannel = new IpcClientChannel(IpcChannelName, null); //チャンネル名は何でもいい
         ChannelServices.RegisterChannel(ClientChannel, false);
         RemotingObject = (FNF.Utility.BouyomiChanRemoting)Activator.GetObject(typeof(FNF.Utility.BouyomiChanRemoting), "ipc://"+IpcChannelName+"/Remoting");
 
@@ -46,6 +48,17 @@ class BouyomiChanClient
         return false;
     }
     public bool NowPlaying {
-        get { return RemotingObject is null ? true : RemotingObject.NowPlaying; }
+        get 
+        { 
+            try 
+            {
+                return RemotingObject is null ? true : RemotingObject.NowPlaying;
+            }
+            catch (RemotingException)
+            {
+                return true;
+            }
+
+        }
     }
 }
