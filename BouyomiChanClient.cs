@@ -48,6 +48,11 @@ class BouyomiChanClient : IDisposable
             ChannelServices.UnregisterChannel(ClientChannel);
             ClientChannel = null;
         }
+        if (BouyomiChanProcess is not null)
+        {
+            BouyomiChanProcess.CloseMainWindow();
+            BouyomiChanProcess = null;
+        }
     }
     private bool CheckBouyomiChanRunning()
     {
