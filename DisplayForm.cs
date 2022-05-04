@@ -48,7 +48,14 @@ class EnumDisplayLabel : DisplayLabel
     }
     public void Update(Enum state)
     {
-        if (state is not null) Text = state.ToString();
+        if (state is not null)
+        {
+            Text = state.ToString();
+        }
+        else
+        {
+            Text = "";
+        }
     }
 }
 
