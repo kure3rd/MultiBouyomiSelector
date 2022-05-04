@@ -127,14 +127,14 @@ class DisplayForm : Form
         layoutPanel.Margin = new Padding(10);
 
         IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
-        var BouyomiChanQueue = new Queue<BouyomiChanClient>();
+        var BouyomiChanList = new List<BouyomiChanClient>();
         foreach (XElement element in BouyomiChanLocations) {
             var client = new BouyomiChanClient("" + element.Name, element.Value);
 
             var panel = new ClientPanel(client.Status);
 //            panel.Location = new System.Drawing.Point(0, 0);
 
-            BouyomiChanQueue.Enqueue(client);
+            BouyomiChanList.Add(client);
             layoutPanel.Controls.Add(panel);
             ClientPanelList.Add(panel);
         }
@@ -142,7 +142,7 @@ class DisplayForm : Form
         timer.Tick += new EventHandler(UpdatePanels);
 
         string IpcServerName = settings.Element("IpcChannelName").Value;
-        Server = new BouyomiChanServer(IpcServerName, BouyomiChanQueue);
+        Server = new BouyomiChanServer(IpcServerName, BouyomiChanList);
         timer.Tick += new EventHandler(Server.SendText);
 
         timer.Interval = 100;//ms
@@ -151,7 +151,7 @@ class DisplayForm : Form
 
     private void UpdatePanels(object sender, EventArgs e)
     {
-        var zip = ClientPanelList.Zip(Server.ClientQueue, (panel, client) => new { Panel = panel, Client = client });
+        var zip = ClientPanelList.Zip(Server.ClientList, (panel, client) => new { Panel = panel, Client = client });
         foreach (var item in zip)
         {
             item.Panel.Update(item.Client.Status);

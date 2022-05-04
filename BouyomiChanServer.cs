@@ -6,7 +6,8 @@ using System.Runtime.Remoting.Channels.Ipc;
 
 class BouyomiChanServer
 {
-    public Queue<BouyomiChanClient> ClientQueue;
+    public List<BouyomiChanClient> ClientList;
+    private Queue<BouyomiChanClient> ClientQueue;
     ConcurrentRingBuffer<string> MessageQueue;
 
     void ReceiveText(object sender, FNF.Utility.ReceiveTextEventArgs e)
@@ -32,7 +33,7 @@ class BouyomiChanServer
         if (c < ClientQueue.Count) Console.WriteLine(ClientQueue.Peek().Status.IpcChannelName);
     }
 
-    public BouyomiChanServer(string IpcServerName, Queue<BouyomiChanClient> ClientQueue)
+    public BouyomiChanServer(string IpcServerName, List<BouyomiChanClient> ClientList)
     {
         var ServerChannel = new IpcServerChannel(IpcServerName);
         ChannelServices.RegisterChannel(ServerChannel, false);
@@ -40,7 +41,8 @@ class BouyomiChanServer
         RemotingObject.ReceiveTextEvent += new FNF.Utility.BouyomiChanRemoting.ReceiveTextEventHandler(ReceiveText);
         RemotingServices.Marshal(RemotingObject, "Remoting", typeof(FNF.Utility.BouyomiChanRemoting));
 
-        this.ClientQueue = ClientQueue;
+        this.ClientList = ClientList;
+        this.ClientQueue = new Queue<BouyomiChanClient>(ClientList);
         this.MessageQueue = new ConcurrentRingBuffer<string>(10);
     }
 }
