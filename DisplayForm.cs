@@ -54,6 +54,9 @@ class ClientPanel : TableLayoutPanel
         ColumnCount = 3;
         RowCount = 3;
         AutoSize = true;
+        ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+        ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 300F));
+        ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
 
         Controls.Add(new StaticDisplayLabel("Path:"), 0, 0);
         Controls.Add(new StaticDisplayLabel("Channel:"), 0, 1);
