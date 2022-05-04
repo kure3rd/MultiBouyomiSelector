@@ -9,8 +9,6 @@ public static class Program
     [STAThread]
     public static void Main()
     {
-//        Console.WriteLine("Hello, World!");
-
         XElement settings = XElement.Load("settings.xml");
 
         Application.EnableVisualStyles();

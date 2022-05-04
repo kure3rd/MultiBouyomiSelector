@@ -14,8 +14,8 @@ namespace FNF.Utility {
         public void AddTalkTask (string sTalkText, int iSpeed, int iTone, int iVolume, int vType) { AddTalkTask(sTalkText); }
         public int  AddTalkTask2(string sTalkText) { var e = new ReceiveTextEventArgs(); e.Message = sTalkText; ReceiveTextEvent(this, e); return 0; }
         public int  AddTalkTask2(string sTalkText, int iSpeed, int iTone, int iVolume, int vType) { AddTalkTask2(sTalkText); return 0; }
-        public void ClearTalkTasks() { Console.WriteLine("A"); }
-        public void SkipTalkTask() { Console.WriteLine("A"); }
+        public void ClearTalkTasks() { }
+        public void SkipTalkTask() { }
 
         public int  TalkTaskCount { get { return 0; }         }
         public int  NowTaskId     { get { return 0; }         }

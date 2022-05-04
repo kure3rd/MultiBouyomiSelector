@@ -11,7 +11,6 @@ class BouyomiChanServer
 
     void ReceiveText(object sender, FNF.Utility.ReceiveTextEventArgs e)
     {
-        Console.WriteLine("TalkText Called");
         MessageQueue.Enqueue(e.Message);
     }
     

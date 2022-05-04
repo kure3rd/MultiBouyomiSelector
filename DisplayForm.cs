@@ -152,7 +152,6 @@ class DisplayForm : Form
 
     private void UpdatePanels(object sender, EventArgs e)
     {
-        Console.WriteLine("Update");
         var zip = ClientPanelList.Zip(Server.ClientList, (panel, client) => new { Panel = panel, Client = client });
         foreach (var item in zip)
         {

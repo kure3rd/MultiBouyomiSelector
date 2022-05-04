@@ -70,7 +70,7 @@ class BouyomiChanClient : IDisposable
                 Console.WriteLine(e.Message);
                 continue;
             }
-            Console.WriteLine(ProcessDirectory+":"+Status.DirectoryLocation);
+            //Console.WriteLine(ProcessDirectory+":"+Status.DirectoryLocation);
             if (ProcessDirectory == Status.DirectoryLocation)
             {
                 BouyomiChanProcess = process;
