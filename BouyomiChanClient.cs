@@ -72,15 +72,22 @@ class BouyomiChanClient : IDisposable
     public bool NowPlaying {
         get 
         { 
+            bool state;
             try 
             {
-                return RemotingObject is null ? true : RemotingObject.NowPlaying;
+                state = RemotingObject is null ? true : RemotingObject.NowPlaying;
             }
             catch (RemotingException)
             {
                 return true;
             }
-
+            Status.isConnected = ConnectStatus.Connected;
+            return state;
         }
+    }
+    public int Talk(string message)
+    {
+        Status.LastTalkText = message;
+        return RemotingObject.AddTalkTask2(message);
     }
 }

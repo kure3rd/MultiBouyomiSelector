@@ -6,7 +6,7 @@ using System.Runtime.Remoting.Channels.Ipc;
 
 class BouyomiChanServer
 {
-    List<BouyomiChanClient> ClientList;
+    public List<BouyomiChanClient> ClientList;
     ConcurrentRingBuffer<string> MessageQueue;
 
     void ReceiveText(object sender, FNF.Utility.ReceiveTextEventArgs e)
@@ -22,7 +22,7 @@ class BouyomiChanServer
         {
             if (!client.NowPlaying && MessageQueue.TryDequeue(out message, 3))
             {
-                client.RemotingObject.AddTalkTask2(message);
+                client.Talk(message);
             }
         }
     }
