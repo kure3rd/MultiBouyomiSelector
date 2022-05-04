@@ -23,6 +23,7 @@ class BouyomiChanClient : IDisposable
             if (BouyomiChanProcess is null) return;
             if (!BouyomiChanProcess.WaitForInputIdle()) return;
         }
+        Status.ProcessState = ProcessStatus.Running;
 
         ClientChannel = new IpcClientChannel(IpcChannelName, null); //チャンネル名は何でもいい
         ChannelServices.RegisterChannel(ClientChannel, false);
@@ -81,7 +82,6 @@ class BouyomiChanClient : IDisposable
             {
                 return true;
             }
-            Status.isConnected = ConnectStatus.Connected;
             return state;
         }
     }
@@ -89,5 +89,31 @@ class BouyomiChanClient : IDisposable
     {
         Status.LastTalkText = message;
         return RemotingObject.AddTalkTask2(message);
+    }
+    public void UpdateStatus()
+    {
+        if (CheckBouyomiChanRunning())
+        {
+            Status.ProcessState = ProcessStatus.Running;
+        }
+        else
+        {
+            if (Status.ProcessState > ProcessStatus.Runnable) { }
+            if (Status.ProcessState < ProcessStatus.Runnable) Status.ProcessState = ProcessStatus.Closed;
+        }
+
+        if (Status.ProcessState == ProcessStatus.Closed || RemotingObject is null)
+        {
+            Status.isConnected = ConnectStatus.Disconnected;
+            Status.isBusy = null;
+        }
+        else 
+        {
+            Status.isConnected = ConnectStatus.Connected;
+
+            if (NowPlaying) Status.isBusy = ServerStatus.Busy;
+            else Status.isBusy = ServerStatus.Wait;
+        }
+        
     }
 }

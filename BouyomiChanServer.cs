@@ -20,6 +20,7 @@ class BouyomiChanServer
         string message;
         foreach (var client in ClientList)
         {
+            client.UpdateStatus();
             if (!client.NowPlaying && MessageQueue.TryDequeue(out message, 3))
             {
                 client.Talk(message);
