@@ -4,21 +4,34 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Drawing;
 
 class DisplayLabel : Label
 {
-    public DisplayLabel(string name) : base()
+    public DisplayLabel() : base()
+    {
+        AutoSize = true;
+        Anchor = AnchorStyles.Bottom;
+        Margin = new Padding(2);
+    }
+}
+class StaticDisplayLabel : DisplayLabel
+{
+    public StaticDisplayLabel(string name) : base()
     {
         Name = name;
         Text = name;
-        AutoSize = true;
     }
 }
-class EnumDisplayLabel : Label
+class EnumDisplayLabel : DisplayLabel
 {
     public EnumDisplayLabel(Enum state) : base()
     {
-        if (state is not null) Text = state.ToString();
+        if (state is not null)
+        {
+            Name = state.GetType().Name;
+            Text = state.ToString();
+        }
     }
     public void Update(Enum state)
     {
@@ -42,14 +55,14 @@ class ClientPanel : TableLayoutPanel
         RowCount = 3;
         AutoSize = true;
 
-        Controls.Add(new DisplayLabel("Path:"), 0, 0);
-        Controls.Add(new DisplayLabel("Channel:"), 0, 1);
-        Controls.Add(new DisplayLabel("LastTalk:"), 0, 2);
-        DirectionLocateLabel = new DisplayLabel(System.IO.Path.GetFileName(status.DirectoryLocation));
+        Controls.Add(new StaticDisplayLabel("Path:"), 0, 0);
+        Controls.Add(new StaticDisplayLabel("Channel:"), 0, 1);
+        Controls.Add(new StaticDisplayLabel("LastTalk:"), 0, 2);
+        DirectionLocateLabel = new StaticDisplayLabel(System.IO.Path.GetFileName(status.DirectoryLocation));
         Controls.Add(DirectionLocateLabel, 1, 0);
-        IpcChannelLabel = new DisplayLabel(status.IpcChannelName);
+        IpcChannelLabel = new StaticDisplayLabel(status.IpcChannelName);
         Controls.Add(IpcChannelLabel, 1, 1);
-        LastTalkLabel = new DisplayLabel(status.LastTalkText);
+        LastTalkLabel = new StaticDisplayLabel(status.LastTalkText);
         Controls.Add(LastTalkLabel, 1, 2);
         ProcessLabel = new EnumDisplayLabel(status.ProcessState);
         Controls.Add(ProcessLabel, 2, 0);
@@ -66,6 +79,11 @@ class ClientPanel : TableLayoutPanel
         ConnectionLabel.Update(status.isConnected);
         BusyLabel.Update(status.isBusy);
     }
+    protected override void OnPaintBackground(PaintEventArgs e)
+    {
+        base.OnPaintBackground(e);
+        ControlPaint.DrawBorder(e.Graphics, e.ClipRectangle, Color.Red, ButtonBorderStyle.Solid);
+    }
 }
 class DisplayForm : Form
 {
@@ -81,6 +99,7 @@ class DisplayForm : Form
         layoutPanel = new FlowLayoutPanel();
         layoutPanel.FlowDirection = FlowDirection.TopDown;
         layoutPanel.Size = new System.Drawing.Size(1000,1000);
+        layoutPanel.Margin = new Padding(10);
 
         IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
         var BouyomiChanList = new List<BouyomiChanClient>();
