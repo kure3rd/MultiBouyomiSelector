@@ -60,7 +60,16 @@ class BouyomiChanClient : IDisposable
         Process[] BouyomiChanProcesses = Process.GetProcessesByName("BouyomiChan");
         foreach (var process in BouyomiChanProcesses)
         {
-            string ProcessDirectory = Path.GetDirectoryName(process.MainModule.FileName);
+            string ProcessDirectory;
+            try
+            {
+                ProcessDirectory = Path.GetDirectoryName(process.MainModule.FileName);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                continue;
+            }
             Console.WriteLine(ProcessDirectory+":"+Status.DirectoryLocation);
             if (ProcessDirectory == Status.DirectoryLocation)
             {
