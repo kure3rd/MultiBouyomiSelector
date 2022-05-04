@@ -3,6 +3,7 @@ using System.Xml.Linq;
 
 public enum ProcessStatus
 {
+    Closed,
     Running,
     Runnable,
     FileNotFound,
