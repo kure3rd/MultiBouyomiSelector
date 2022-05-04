@@ -35,12 +35,9 @@ class ClientPanel : TableLayoutPanel
     EnumDisplayLabel ConnectionLabel;
     EnumDisplayLabel BusyLabel;
 
-    BouyomiChanStatus Status;
-//    public delegate void PanelUpdateEventHandler(object sender, PanelUpdateEventArgs s);
- //   public event PanelUpdateEventHandler PanelUpdateEvent;
     public ClientPanel(BouyomiChanStatus status) : base()
     {
-        Status = status;
+        Name = status.IpcChannelName;
         ColumnCount = 3;
         RowCount = 3;
         AutoSize = true;
@@ -48,17 +45,17 @@ class ClientPanel : TableLayoutPanel
         Controls.Add(new DisplayLabel("Path:"), 0, 0);
         Controls.Add(new DisplayLabel("Channel:"), 0, 1);
         Controls.Add(new DisplayLabel("LastTalk:"), 0, 2);
-        DirectionLocateLabel = new DisplayLabel(System.IO.Path.GetFileName(Status.DirectoryLocation));
+        DirectionLocateLabel = new DisplayLabel(System.IO.Path.GetFileName(status.DirectoryLocation));
         Controls.Add(DirectionLocateLabel, 1, 0);
-        IpcChannelLabel = new DisplayLabel(Status.IpcChannelName);
+        IpcChannelLabel = new DisplayLabel(status.IpcChannelName);
         Controls.Add(IpcChannelLabel, 1, 1);
-        LastTalkLabel = new DisplayLabel(Status.LastTalkText);
+        LastTalkLabel = new DisplayLabel(status.LastTalkText);
         Controls.Add(LastTalkLabel, 1, 2);
-        ProcessLabel = new EnumDisplayLabel(Status.ProcessState);
+        ProcessLabel = new EnumDisplayLabel(status.ProcessState);
         Controls.Add(ProcessLabel, 2, 0);
-        ConnectionLabel = new EnumDisplayLabel(Status.isConnected);
+        ConnectionLabel = new EnumDisplayLabel(status.isConnected);
         Controls.Add(ConnectionLabel, 2, 1);
-        BusyLabel = new EnumDisplayLabel(Status.isBusy);
+        BusyLabel = new EnumDisplayLabel(status.isBusy);
         Controls.Add(BusyLabel, 2, 2);
     }
 
