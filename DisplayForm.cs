@@ -10,9 +10,19 @@ class DisplayLabel : Label
 {
     public DisplayLabel() : base()
     {
-        AutoSize = true;
-        Anchor = AnchorStyles.Bottom;
+        //Anchor = AnchorStyles.Bottom;
         Margin = new Padding(2);
+        TextAlign = ContentAlignment.MiddleLeft;
+    }
+}
+class PropertyDisplaylabel : DisplayLabel
+{
+    public PropertyDisplaylabel(string name) : base()
+    {
+        Name = name;
+        Text = name;
+        Anchor = AnchorStyles.Right;
+        TextAlign = ContentAlignment.MiddleRight;
     }
 }
 class StaticDisplayLabel : DisplayLabel
@@ -21,6 +31,9 @@ class StaticDisplayLabel : DisplayLabel
     {
         Name = name;
         Text = name;
+        Anchor = AnchorStyles.Left;
+        AutoEllipsis = true;
+        AutoSize = true;
     }
 }
 class EnumDisplayLabel : DisplayLabel
@@ -58,9 +71,9 @@ class ClientPanel : TableLayoutPanel
         ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 300F));
         ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
 
-        Controls.Add(new StaticDisplayLabel("Path:"), 0, 0);
-        Controls.Add(new StaticDisplayLabel("Channel:"), 0, 1);
-        Controls.Add(new StaticDisplayLabel("LastTalk:"), 0, 2);
+        Controls.Add(new PropertyDisplaylabel("Path:"), 0, 0);
+        Controls.Add(new PropertyDisplaylabel("Channel:"), 0, 1);
+        Controls.Add(new PropertyDisplaylabel("LastTalk:"), 0, 2);
         DirectionLocateLabel = new StaticDisplayLabel(System.IO.Path.GetFileName(status.DirectoryLocation));
         Controls.Add(DirectionLocateLabel, 1, 0);
         IpcChannelLabel = new StaticDisplayLabel(status.IpcChannelName);
