@@ -1,6 +1,5 @@
 <MultiCommentSelectorSetting>
     <IpcChannelName>BouyomiChan</IpcChannelName>
-    <LaunchAllBouyomiChan>true</LaunchAllBouyomiChan>
     <BouyomiChanLocations>
         <BouyomiChanA>C:\Users\test\Downloads\BouyomiChan_0_1_11_0_Beta21</BouyomiChanA>
         <BouyomiChanB>C:\Users\test\Downloads\BouyomiChan_0_1_11_0_Beta21_(1)</BouyomiChanB>
