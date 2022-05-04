@@ -75,20 +75,29 @@ class DisplayForm : Form
     List<ClientPanel> ClientPanelList;
     Timer timer;
     BouyomiChanServer Server;
+    FlowLayoutPanel layoutPanel;
+
     public DisplayForm(XElement settings)
     {
         timer = new Timer();
         ClientPanelList = new List<ClientPanel>();
+        layoutPanel = new FlowLayoutPanel();
+        layoutPanel.FlowDirection = FlowDirection.TopDown;
+        layoutPanel.Size = new System.Drawing.Size(1000,1000);
 
         IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
         var BouyomiChanList = new List<BouyomiChanClient>();
         foreach (XElement element in BouyomiChanLocations) {
             var client = new BouyomiChanClient("" + element.Name, element.Value);
-            BouyomiChanList.Add(client);
+
             var panel = new ClientPanel(client.Status);
-            Controls.Add(panel);
+//            panel.Location = new System.Drawing.Point(0, 0);
+
+            BouyomiChanList.Add(client);
+            layoutPanel.Controls.Add(panel);
             ClientPanelList.Add(panel);
         }
+        Controls.Add(layoutPanel);
         timer.Tick += new EventHandler(UpdatePanels);
 
         string IpcServerName = settings.Element("IpcChannelName").Value;
