@@ -57,6 +57,30 @@ class EnumDisplayLabel : DisplayLabel
         }
     }
 }
+class ServerStatusLabel : DisplayLabel
+{
+    public void Update(ServerStatus? state)
+    {
+        switch (state)
+        {
+            case null:
+                Text = "";
+                break;
+            case ServerStatus.Wait:
+                Text = "(*・ω・)";
+                break;
+            case ServerStatus.Busy:
+                Text = "(  ﾟДﾟ)";
+                break;
+            case ServerStatus.Other:
+                Text = "(・ω・)??";
+                break;
+            default :
+                Text = "";
+                break;
+        }
+    }
+}
 
 class ClientPanel : TableLayoutPanel
 {
@@ -65,7 +89,7 @@ class ClientPanel : TableLayoutPanel
     DisplayLabel LastTalkLabel;
     EnumDisplayLabel ProcessLabel;
     EnumDisplayLabel ConnectionLabel;
-    EnumDisplayLabel BusyLabel;
+    ServerStatusLabel BusyLabel;
 
     public ClientPanel(BouyomiChanStatus status) : base()
     {
@@ -90,7 +114,7 @@ class ClientPanel : TableLayoutPanel
         Controls.Add(ProcessLabel, 2, 0);
         ConnectionLabel = new EnumDisplayLabel(status.isConnected);
         Controls.Add(ConnectionLabel, 2, 1);
-        BusyLabel = new EnumDisplayLabel(status.isBusy);
+        BusyLabel = new ServerStatusLabel();
         Controls.Add(BusyLabel, 2, 2);
     }
 
