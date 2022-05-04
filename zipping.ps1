@@ -7,7 +7,7 @@ Write-Output $outputDir
 if (Test-Path $outputDir) {}
 else {New-Item $outputDir -ItemType Directory}
 
-$targetPath = (Join-Path $cwd "bin\Any CPU\Release\net48\Publish")
+$targetPath = (Join-Path $cwd "bin\Release\net48\Publish")
 $exePath = (Join-Path $targetPath "*.exe")
 $settingPath = (Join-Path $targetPath "settings.xml")
 Write-Output $targetPath
