@@ -110,11 +110,14 @@ class DisplayForm : Form
 
     public DisplayForm(XElement settings)
     {
+        AutoSize = true;
+        AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
         timer = new Timer();
         ClientPanelList = new List<ClientPanel>();
         layoutPanel = new FlowLayoutPanel();
         layoutPanel.FlowDirection = FlowDirection.TopDown;
-        layoutPanel.Size = new System.Drawing.Size(1000,1000);
+        layoutPanel.AutoSize = true;
         layoutPanel.Margin = new Padding(10);
 
         IEnumerable<XElement> BouyomiChanLocations = from el in settings.Elements("BouyomiChanLocations").Elements() select el;
