@@ -13,5 +13,8 @@
     <Reference Include="System.Runtime.Remoting" />
     <None Update="settings.xml" CopyToOutputDirectory="Always" />
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="powershell.exe -ExecutionPolicy Unrestricted -File zipping.ps1" />
+  </Target>
 
 </Project>
