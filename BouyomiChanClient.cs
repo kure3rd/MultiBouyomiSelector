@@ -117,6 +117,16 @@ class BouyomiChanClient : IDisposable
         }
         else 
         {
+            try 
+            {
+                var _ = RemotingObject.NowPlaying;
+            }
+            catch
+            {
+                Status.isConnected = ConnectStatus.Disconnected;
+                Status.isBusy = null;
+                return;
+            }
             Status.isConnected = ConnectStatus.Connected;
 
             if (NowPlaying) Status.isBusy = ServerStatus.Busy;
