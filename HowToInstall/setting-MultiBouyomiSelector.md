@@ -32,7 +32,7 @@
 - 棒読みちゃんのフォルダは、棒読みちゃんを展開したフォルダ名です。
     - BouyomiChan.exeを右クリック->プロパティからコピーできます。
 
-(棒読みちゃん.exeプロパティの画像)
+![BouyomiChan Property](../image/bouyomichan-property.png)
 
 ## 動作確認
 
@@ -41,4 +41,4 @@
     - エラーが出るときはHelpページを参照してください。
 1. 下図のような状態になれば、設定がうまくいっています。
 
-（MultiBouyomiSelector待機画像）
+![GUI wait](../image/GUI-Wait.png)

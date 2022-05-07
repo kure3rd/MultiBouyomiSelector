@@ -50,11 +50,11 @@
 
 ## 棒読みちゃんの音声出力デバイス設定
 
-（棒読みちゃん画像）
+![bouyomichan](image/bouyomichan.png)
 
 棒読みちゃんの設定を開きます。
 
-（棒読みちゃん設定画面画像）
+![bouyomichan-devicesetting](image/bouyomichan-devicesetting.png)
 
 システム->音声出力デバイスから、使いたい仮想オーディオデバイスを選びます。
 他の方向に振り分けたい棒読みちゃんとは別の仮想オーディオデバイスを選んでください。
@@ -79,4 +79,4 @@
 
 だいたいこんな感じになっていれば聞こえるはずです。
 
-（画像）
+![banana](image/banana.png)

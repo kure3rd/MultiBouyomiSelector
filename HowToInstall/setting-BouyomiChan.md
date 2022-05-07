@@ -3,7 +3,8 @@
 ## 棒読みちゃんの解凍
 
 **最新版**をダウンロードしてきます。
-(画像)
+
+![bouyomichan-beta](../image/bouyomichan-beta.png)
 
 必要な人数分、フォルダを展開します。
 展開する場所はどこでも大丈夫です。
@@ -28,7 +29,7 @@
         - \<EnableHttpd\>*true*\</EnableHttpd\>
 1. 保存する
 
-（BouyomiChan.setting画像）
+![BouyomiChan Setting](../image/bouyomichan-channelsetting.png)
 
 棒読みちゃんの声の設定はそれぞれで管理されています。
 BouyomiChanAは普通の声、BouyomiChanBは高い声のように設定しておくと聞き分けやすいでしょう。

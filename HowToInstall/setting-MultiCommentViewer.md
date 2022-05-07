@@ -14,7 +14,7 @@
 
 ## kui氏作MultiCommentViewer
 
-（MultiCommentViewer画像）
+![multicommentviewer-kui](../image/multibouyomichan-kui.png)
 
 1. 右上の"棒読み"にチェックを入れる
 1. 配信->追加から読み上げさせたい配信を追加
@@ -23,7 +23,7 @@
 
 ## ryu-s氏作MultiCommentViewer
 
-（MultiCommentViewer画像）
+![multicommentviewer-ryu](../image/multibouyomichan-ryu.png)
 
 1. プラグイン->棒読みちゃん連携
     - 設定窓が開きます

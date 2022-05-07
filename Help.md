@@ -25,7 +25,8 @@ MultiBouyomiChanSelector側の設定ファイルで、棒読みちゃんの名�
 
 ## TCPサーバーが起動しないとか出てくる
 
-(画像)
+![TCP error](image/TCP_error.png)
+![HTTP error](image/HTTP_error.png)
 
 それぞれの棒読みちゃんの設定ファイルで、以下を*false*にしてください。
 - \<EnableSocket\>*true*\</EnableSocket\>
