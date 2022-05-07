@@ -5,4 +5,9 @@ format: jb-book
 root: intro
 chapters:
 - file: HowToInstall.md
+  sections:
+  - file: HowToInstall/setting-BouyomiChan.md
+  - file: HowToInstall/setting-MultiBouyomiSelector.md
+  - file: HowToInstall/setting-MultiCommentViewer.md
+- file: separate.md
 - file: Help.md
