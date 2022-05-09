@@ -165,8 +165,14 @@ class DisplayForm : Form
         Controls.Add(layoutPanel);
         timer.Tick += new EventHandler(UpdatePanels);
 
+        var MessageQueueSetting = settings.Element("ServerSetting").Element("MessageQueueSetting");
+        var MessageQueue = ConcurrentRingBuffer<string>(
+            int.Parse(MessageQueueSetting.Element("MaxLength").Value),
+            int.Parse(MessageQueueSetting.Element("CurrentLength").Value)
+        );
+
         string IpcServerName = settings.Element("IpcChannelName").Value;
-        Server = new BouyomiChanServer(IpcServerName, BouyomiChanList);
+        Server = new BouyomiChanServer(IpcServerName, BouyomiChanList, MessageQueue);
         timer.Tick += new EventHandler(Server.SendText);
 
         timer.Interval = 100;//ms

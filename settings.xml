@@ -1,4 +1,10 @@
 <MultiCommentSelectorSetting>
+    <ServerSetting>
+        <MessageQueue>
+            <MaxLength>10</MaxLength>
+            <CurrentLength>3</CurrentLength>
+        </MessageQueue>
+    </ServerSetting>
     <IpcChannelName>BouyomiChan</IpcChannelName>
     <BouyomiChanLocations>
         <BouyomiChanA>C:\Users\test\Downloads\BouyomiChan_0_1_11_0_Beta21</BouyomiChanA>

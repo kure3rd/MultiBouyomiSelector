@@ -3,14 +3,15 @@ using System.Collections.Concurrent;
 class ConcurrentRingBuffer<T>
 {
     private ConcurrentQueue<T> _queue;
-    public ConcurrentRingBuffer(int capacity)
+    private int length;
+    public ConcurrentRingBuffer(int capacity, int length)
     {
         _queue = new ConcurrentQueue<T>();
     }
     public void Enqueue(T data) => _queue.Enqueue(data);
-    public bool TryDequeue(out T result, int tail)
+    public bool TryDequeue(out T result)
     {
-        while (_queue.Count >= tail)
+        while (_queue.Count >= length)
         {
             _queue.TryDequeue(out result);
         }

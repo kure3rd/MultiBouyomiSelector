@@ -33,7 +33,7 @@ class BouyomiChanServer
         if (c < ClientQueue.Count) Console.WriteLine(ClientQueue.Peek().Status.IpcChannelName);
     }
 
-    public BouyomiChanServer(string IpcServerName, List<BouyomiChanClient> ClientList)
+    public BouyomiChanServer(string IpcServerName, List<BouyomiChanClient> ClientList, ConcurrentRingBuffer<string> MessageQueue)
     {
         var ServerChannel = new IpcServerChannel(IpcServerName);
         ChannelServices.RegisterChannel(ServerChannel, false);
@@ -43,6 +43,6 @@ class BouyomiChanServer
 
         this.ClientList = ClientList;
         this.ClientQueue = new Queue<BouyomiChanClient>(ClientList);
-        this.MessageQueue = new ConcurrentRingBuffer<string>(10);
+        this.MessageQueue = MessageQueue;
     }
 }
