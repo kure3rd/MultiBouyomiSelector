@@ -1,7 +1,7 @@
 # インストール
 
 必要なもの
-- 棒読みちゃん
+- [棒読みちゃん](https://chi.usamimi.info/Program/Application/BouyomiChan/)
     - （最新版）
 - [MultiCommentViewer](https://develop-kui.com/blog/multicommentviewer-download/)か[MultiCommentViewer](https://ryu-s.github.io/app/multicommentviewer)
 - [MultiBouyomiSelector](https://github.com/kure3rd/MultiBouyomiSelector/releases)
