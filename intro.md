@@ -2,6 +2,9 @@
 
 コメントを複数の[棒読みちゃん](https://chi.usamimi.info/Program/Application/BouyomiChan/)に喋ってもらえるプログラムです。
 
+全てのコメントを読み上げてしまうと配信の状況に追いつかない場合があるため、新しめのコメントを拾うことで改善しています。
+（読み上げ終了とタイミングが合わなかったコメントは飛ばされます。）
+
 こんな感じになります。
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZRi61JDBpLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
