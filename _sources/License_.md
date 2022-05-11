@@ -13,7 +13,7 @@ MultiBouyomiSelector自体は商用利用可です。
 間違いに気づいた場合は、ぜひIssueを送ってください。
 すぐに直します。
 
-# 棒読みちゃんに使用されているAquesTalk Winのライセンス
+## 棒読みちゃんに使用されているAquesTalk Winのライセンス
 
 [ゆっくり実況で収益化するときライセンス購入は必要？ \| N\.Yamazaki's blog](http://blog-yama.a-quest.com/?eid=970181)
 
@@ -23,22 +23,22 @@ MultiBouyomiSelector自体は商用利用可です。
 実際に調べてみたところ、棒読みちゃんVer0.1.11.0 β21で使用されている全てのAquesTalks.dllのハッシュ値と、無償利用可として公開されているハッシュ値は一致していました。
 したがって本プログラムが使用を想定している[棒読みちゃん](https://chi.usamimi.info/Program/Application/BouyomiChan/)Ver0.1.11.0 β21について、商用利用に際してライセンスの購入は必要ないようです。
 
-# MultiCommentViewerについて
+## MultiCommentViewerについて
 
-## kui氏作MultiCommentViewer
+### kui氏作MultiCommentViewer
 
 ライセンスについての記述を見つけられませんでした。
 
-## ryu-s氏作MultiCommentViewer
+### ryu-s氏作MultiCommentViewer
 
 [MultiCommentViewer/LICENSE](https://github.com/CommentViewerCollection/MultiCommentViewer/blob/master/LICENSE)
 に
 [GNU General Public License version 3](https://opensource.org/licenses/GPL-3.0)
 と明記してあるので問題ないと思います。
 
-# 仮想オーディオデバイスについて
+## 仮想オーディオデバイスについて
 
-## VB-CABLE
+### VB-CABLE
 
 professional useに関しては購入が必要なようです。
 
@@ -47,16 +47,16 @@ professional useに関しては購入が必要なようです。
 
 200EUR/USDで全て解決するので買ってみても良いかも知れません。
 
-## YAMAHA SYNCROOM driver
+### YAMAHA SYNCROOM driver
 
 調査中です。
 
-# 仮想オーディオミキサーについて
+## 仮想オーディオミキサーについて
 
-## VoiceMeeter Banana
+### VoiceMeeter Banana
 
 VB-Cableと同様、購入が必要なようです。
 [Voicemeeter \- VB Audio Software](https://shop.vb-audio.com/en/win-apps/9-voicemeeter.html)
 >For professional use:	Select the price level P4 or P5, thanks for your participation.
 
-他の方法があるかも知れません。
+このあたりは他の方法があるかも知れません。
