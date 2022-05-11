@@ -5,6 +5,7 @@ MultiBouyomiSelector自体は商用利用可です。
 に基づいて開発している旨を
 [MultiBouyomiSelector/LICENSE](https://github.com/kure3rd/MultiBouyomiSelector/blob/master/LICENSE)
 に記載しています。
+（あと、本ソフトウェアによって生じた不利益や損害に対していかなる責任も負いません。）
 
 しかし、実際に使うためにはいくつかのプログラムと組み合わせる必要があります。
 少し調べてみたので、情報を共有します。
@@ -45,7 +46,7 @@ professional useに関しては購入が必要なようです。
 [VB\-Cable A\+B \- VB Audio Software](https://shop.vb-audio.com/en/win-apps/12-vb-cable-ab.html)に、以下のように記されています。
 >For professional use:	Select the price level P4 or P5, thanks for your participation.
 
-200EUR/USDで全て解決するので買ってみても良いかも知れません。
+20EUR/USDで全て解決するので買ってみても良いかも知れません。
 
 ### YAMAHA SYNCROOM driver
 
