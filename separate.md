@@ -44,6 +44,7 @@
 
 ## 仮想オーディオデバイスのインストール
 - [VB\-Cable](https://vb-audio.com/Cable/index.htm)
+    - インストールする際は管理者権限で実行する必要があります。
 - [SYNCROOM（シンクルーム）](https://syncroom.yamaha.com/?utm_source=jpy_foot_br&utm_medium=owned&utm_campaign=allyear)
 
 指示通りインストールしてください。
