@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>各棒読みちゃんをOBS音源上で左右に振りたい &#8212; MultiBouyomiSelector Manual</title>
+    <title>商用利用に関する情報共有 &#8212; MultiBouyomiSelector Manual</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="うまく動かないときは" href="Help.html" />
-    <link rel="prev" title="MultiCommentViewerのインストール" href="HowToInstall/setting-MultiCommentViewer.html" />
+    <link rel="prev" title="うまく動かないときは" href="Help.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,8 +120,8 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="separate.html">
    各棒読みちゃんをOBS音源上で左右に振りたい
   </a>
  </li>
@@ -131,8 +130,8 @@ const thebe_selector_output = ".output, .cell_output"
    うまく動かないときは
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="License_.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    商用利用に関する情報共有
   </a>
  </li>
@@ -177,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/separate.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/License_.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -197,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/kure3rd/MultiBouyomiSelector/issues/new?title=Issue%20on%20page%20%2Fseparate.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/kure3rd/MultiBouyomiSelector/issues/new?title=Issue%20on%20page%20%2FLicense_.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -225,46 +224,56 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   各棒読みちゃんをOBS音源上で左右に振りたい
+   商用利用に関する情報共有
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aquestalk-win">
+   棒読みちゃんに使用されているAquesTalk Winのライセンス
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multicommentviewer">
+   MultiCommentViewerについて
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     まず疑問に思うであろう点
+    <a class="reference internal nav-link" href="#kuimulticommentviewer">
+     kui氏作MultiCommentViewer
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#win-capture-audio">
-       それぞれの棒読みちゃんをwin-capture-audioで取り込めばよいのでは？
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ryu-smulticommentviewer">
+     ryu-s氏作MultiCommentViewer
+    </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   設定方法
+   仮想オーディオデバイスについて
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     仮想オーディオデバイスのインストール
+    <a class="reference internal nav-link" href="#vb-cable">
+     VB-CABLE
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     棒読みちゃんの音声出力デバイス設定
+    <a class="reference internal nav-link" href="#yamaha-syncroom-driver">
+     YAMAHA SYNCROOM driver
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   仮想オーディオミキサーについて
+  </a>
+  <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     OBS
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     仮想ミキサー
+    <a class="reference internal nav-link" href="#voicemeeter-banana">
+     VoiceMeeter Banana
     </a>
    </li>
   </ul>
@@ -279,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>各棒読みちゃんをOBS音源上で左右に振りたい</h1>
+                <h1>商用利用に関する情報共有</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -291,46 +300,56 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   各棒読みちゃんをOBS音源上で左右に振りたい
+   商用利用に関する情報共有
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aquestalk-win">
+   棒読みちゃんに使用されているAquesTalk Winのライセンス
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multicommentviewer">
+   MultiCommentViewerについて
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     まず疑問に思うであろう点
+    <a class="reference internal nav-link" href="#kuimulticommentviewer">
+     kui氏作MultiCommentViewer
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#win-capture-audio">
-       それぞれの棒読みちゃんをwin-capture-audioで取り込めばよいのでは？
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ryu-smulticommentviewer">
+     ryu-s氏作MultiCommentViewer
+    </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   設定方法
+   仮想オーディオデバイスについて
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     仮想オーディオデバイスのインストール
+    <a class="reference internal nav-link" href="#vb-cable">
+     VB-CABLE
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     棒読みちゃんの音声出力デバイス設定
+    <a class="reference internal nav-link" href="#yamaha-syncroom-driver">
+     YAMAHA SYNCROOM driver
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   仮想オーディオミキサーについて
+  </a>
+  <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     OBS
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     仮想ミキサー
+    <a class="reference internal nav-link" href="#voicemeeter-banana">
+     VoiceMeeter Banana
     </a>
    </li>
   </ul>
@@ -344,94 +363,69 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="obs">
-<h1>各棒読みちゃんをOBS音源上で左右に振りたい<a class="headerlink" href="#obs" title="Permalink to this headline">¶</a></h1>
-<p>本プログラムの最終目的です。
-<strong>各棒読みちゃんを別々の仮想オーディオデバイスに通すことで、別のステレオ音源としてOBSに入力します</strong>。</p>
-<p>自分は配信者ではないのでわかりませんが、もっと一般的な方法があるかも知れません。
-項目として追加したいので、是非Issueなどでご教示ください。</p>
-<p>必要なもの</p>
-<ul class="simple">
-<li><p>仮想オーディオデバイス、例えば</p>
-<ul>
-<li><p><a class="reference external" href="https://syncroom.yamaha.com/?utm_source=jpy_foot_br&amp;utm_medium=owned&amp;utm_campaign=allyear">SYNCROOM（シンクルーム）</a></p>
-<ul>
-<li><p>…についてくる、Yamaha SYNCROOM driver</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://vb-audio.com/Cable/index.htm">VB-Cable</a></p></li>
-<li><p>仮想オーディオデバイスであれば何でも良いはずです。</p></li>
-</ul>
-</li>
-<li><p>（必要な方は）仮想ミキサー</p></li>
-</ul>
-<p>ざっくり手順</p>
-<ul class="simple">
-<li><p>それぞれの棒読みちゃんの出力先を別々の仮想オーディオデバイスに設定</p>
-<ul>
-<li><p>本手順書ではSYNCROOM driverとVB-Cableを使っています</p></li>
-<li><p>同等の環境が用意できるなら何でも良いです</p></li>
-</ul>
-</li>
-<li><p>OBSの音声出力キャプチャで各仮想オーディオデバイスを指定する</p>
-<ul>
-<li><p>ステレオになっているので詳細プロパティから左右に振ることができる</p></li>
-</ul>
-</li>
-<li><p>（必要な方は）仮想ミキサーから仮想オーディオデバイスの音を流す</p></li>
-</ul>
-<div class="section" id="id1">
-<h2>まず疑問に思うであろう点<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="win-capture-audio">
-<h3>それぞれの棒読みちゃんをwin-capture-audioで取り込めばよいのでは？<a class="headerlink" href="#win-capture-audio" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://obsproject.com/forum/resources/win-capture-audio.1338/">win-capture-audio</a>では、同じプロセス名のプログラムは同一音源として扱われます。
-そして棒読みちゃんは全て同じプロセス名BouyomiChan.exeとして動いています。
-試してみましたが、複数の棒読みちゃんを起動していると、しっかりPIDを複数表示してくれます。仕様です。
-このプロセス名はプログラム内に組み込まれており、外部から手を加えるのは難しいです。</p>
-<p>可能ならもっとスマートな方法
-……MultiBouyomiSelector自体に仮想デバイス機能を持たせたりして、MultiBouyomiSelectorで棒読みちゃんが出力している音声を取り込んで左右まで設定して、win-capture-audioから一発で入力できるようにする的な……
-を取りたいですが、デバイスやプロセス関係は専門外で全く知識がありません。</p>
-<p>求む有識者！</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>商用利用に関する情報共有<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>MultiBouyomiSelector自体は商用利用可です。
+<a class="reference external" href="https://opensource.org/licenses/GPL-3.0">GNU General Public License version 3</a>
+に基づいて開発している旨を
+<a class="reference external" href="https://github.com/kure3rd/MultiBouyomiSelector/blob/master/LICENSE">MultiBouyomiSelector/LICENSE</a>
+に記載しています。</p>
+<p>しかし、実際に使うためにはいくつかのプログラムと組み合わせる必要があります。
+少し調べてみたので、情報を共有します。</p>
+<p>権利関係も全くの素人ですので、自己責任でお願いします。
+間違いに気づいた場合は、ぜひIssueを送ってください。
+すぐに直します。</p>
 </div>
+<div class="tex2jax_ignore mathjax_ignore section" id="aquestalk-win">
+<h1>棒読みちゃんに使用されているAquesTalk Winのライセンス<a class="headerlink" href="#aquestalk-win" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://blog-yama.a-quest.com/?eid=970181">ゆっくり実況で収益化するときライセンス購入は必要？ | N.Yamazaki’s blog</a></p>
+<blockquote>
+<div><p>2011年2月にライセンス規定が大きく変更され…無償利用は個人の非営利に限定され、法人や営利目的の使用ではライセンスの購入が必要となりました。
+2011年1月以前のライブラリであるかを…MD5ハッシュ値で判断します。</p>
+</div></blockquote>
+<p>実際に調べてみたところ、棒読みちゃんVer0.1.11.0 β21で使用されている全てのAquesTalks.dllのハッシュ値と、無償利用可として公開されているハッシュ値は一致していました。
+したがって本プログラムが使用を想定している<a class="reference external" href="https://chi.usamimi.info/Program/Application/BouyomiChan/">棒読みちゃん</a>Ver0.1.11.0 β21について、商用利用に際してライセンスの購入は必要ないようです。</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="multicommentviewer">
+<h1>MultiCommentViewerについて<a class="headerlink" href="#multicommentviewer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="kuimulticommentviewer">
+<h2>kui氏作MultiCommentViewer<a class="headerlink" href="#kuimulticommentviewer" title="Permalink to this headline">¶</a></h2>
+<p>ライセンスについての記述を見つけられませんでした。</p>
+</div>
+<div class="section" id="ryu-smulticommentviewer">
+<h2>ryu-s氏作MultiCommentViewer<a class="headerlink" href="#ryu-smulticommentviewer" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/CommentViewerCollection/MultiCommentViewer/blob/master/LICENSE">MultiCommentViewer/LICENSE</a>
+に
+<a class="reference external" href="https://opensource.org/licenses/GPL-3.0">GNU General Public License version 3</a>
+と明記してあるので問題ないと思います。</p>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="id2">
-<h1>設定方法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id3">
-<h2>仮想オーディオデバイスのインストール<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://vb-audio.com/Cable/index.htm">VB-Cable</a></p>
-<ul>
-<li><p>インストールする際は管理者権限で実行する必要があります。</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://syncroom.yamaha.com/?utm_source=jpy_foot_br&amp;utm_medium=owned&amp;utm_campaign=allyear">SYNCROOM（シンクルーム）</a></p></li>
-</ul>
-<p>指示通りインストールしてください。</p>
+<h1>仮想オーディオデバイスについて<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="vb-cable">
+<h2>VB-CABLE<a class="headerlink" href="#vb-cable" title="Permalink to this headline">¶</a></h2>
+<p>professional useに関しては購入が必要なようです。</p>
+<p><a class="reference external" href="https://shop.vb-audio.com/en/win-apps/12-vb-cable-ab.html">VB-Cable A+B - VB Audio Software</a>に、以下のように記されています。</p>
+<blockquote>
+<div><p>For professional use:	Select the price level P4 or P5, thanks for your participation.</p>
+</div></blockquote>
+<p>200EUR/USDで全て解決するので買ってみても良いかも知れません。</p>
 </div>
-<div class="section" id="id4">
-<h2>棒読みちゃんの音声出力デバイス設定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p><img alt="bouyomichan" src="_images/bouyomichan.png" /></p>
-<p>棒読みちゃんの設定を開きます。</p>
-<p><img alt="bouyomichan-devicesetting" src="_images/bouyomichan-devicesetting.png" /></p>
-<p>システム-&gt;音声出力デバイスから、使いたい仮想オーディオデバイスを選びます。
-他の方向に振り分けたい棒読みちゃんとは別の仮想オーディオデバイスを選んでください。</p>
-<p>（同じオーディオデバイスを選んでも問題なく動作はします。）</p>
+<div class="section" id="yamaha-syncroom-driver">
+<h2>YAMAHA SYNCROOM driver<a class="headerlink" href="#yamaha-syncroom-driver" title="Permalink to this headline">¶</a></h2>
+<p>調査中です。</p>
 </div>
-<div class="section" id="id5">
-<h2>OBS<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>ソース+ -&gt; 音声出力キャプチャ -&gt; 新規作成 -&gt; 棒読みちゃんで選んだ仮想オーディオデバイス</p>
-<p>追加したソースの音声ミキサーが動いたら成功です。オーディオの詳細プロパティから左右に振ってください。</p>
-<p>詳細はOBSの使い方で調べてください。</p>
 </div>
-<div class="section" id="id6">
-<h2>仮想ミキサー<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<p>配信上には棒読みちゃんの声が乗りますが、自分のPC上では何も鳴りません。
-必要であれば仮想ミキサーを使って、仮想オーディオデバイスからの出力をPC上で流してください。</p>
-<p>やり方は使うミキサーによって様々です。
-自分は<a class="reference external" href="https://vb-audio.com/Voicemeeter/banana.htm">VB-Audio VoiceMeeter Banana</a>を<a class="reference external" href="https://arutora.com/15444">配信や動画にVC音を入れない方法、Voicemeeter Bananaの使い方と設定の解説。USBヘッドセットもOK | ARUTORA</a>を参考にしながら使いました。</p>
-<p>だいたいこんな感じになっていれば聞こえるはずです。</p>
-<p><img alt="banana" src="_images/banana.png" /></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="id3">
+<h1>仮想オーディオミキサーについて<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="voicemeeter-banana">
+<h2>VoiceMeeter Banana<a class="headerlink" href="#voicemeeter-banana" title="Permalink to this headline">¶</a></h2>
+<p>VB-Cableと同様、購入が必要なようです。
+<a class="reference external" href="https://shop.vb-audio.com/en/win-apps/9-voicemeeter.html">Voicemeeter - VB Audio Software</a></p>
+<blockquote>
+<div><p>For professional use:	Select the price level P4 or P5, thanks for your participation.</p>
+</div></blockquote>
+<p>他の方法があるかも知れません。</p>
 </div>
 </div>
 
@@ -460,19 +454,12 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="HowToInstall/setting-MultiCommentViewer.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Help.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">MultiCommentViewerのインストール</p>
+            <p class="prev-next-title">うまく動かないときは</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="Help.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">うまく動かないときは</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
