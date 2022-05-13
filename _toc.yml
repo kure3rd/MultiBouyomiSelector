@@ -12,3 +12,4 @@ chapters:
 - file: separate.md
 - file: Help.md
 - file: Licenses.md
+- file: compile.md
