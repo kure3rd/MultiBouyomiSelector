@@ -13,5 +13,20 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JTj2JN8sQgM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
+使うときは
+[ここ](https://github.com/kure3rd/MultiBouyomiSelector/releases/latest)
+から
+**MultiBouyomiSelector.zip**
+をダウンロードしてください。
+Source code (zip)とかはそのままでは動かないやつです。
+
+責任は一切取れませんが、商用・非商用問わず自由に使ってください。
+
+使う際はよければ
+[Twitter](https://twitter.com/kure3rd)
+にメンションください。
+この謎プログラムがどう使われるか、そもそも使う人がいるのかとても興味があります。
+
 ```{tableofcontents}
 ```
