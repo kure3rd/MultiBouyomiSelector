@@ -276,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>MultiBouyomiSelector側<a class="headerlink" href="#multibouyomiselector" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
 <h2>設定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/kure3rd/MultiBouyomiSelector/releases">MultiBouyomiSelector</a>を解凍してsettings.xmlを開きます。
+<p><a class="reference external" href="https://github.com/kure3rd/MultiBouyomiSelector/releases/latest">MultiBouyomiSelector</a>を解凍してsettings.xmlを開きます。
 以下のような部分があります。</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>...
     <span class="nt">&lt;BouyomiChanLocations&gt;</span>
@@ -286,20 +286,14 @@ const thebe_selector_output = ".output, .cell_output"
 ...
 </pre></div>
 </div>
-<p>&lt;BouyomiChanLocations&gt;と&lt;/BouyomiChanLocations&gt;の間に、先程設定した各棒読みちゃんの情報を記入していきます。</p>
-<p>（
-間の2行は設定例として書いてあります。
-先に消しておきましょう。
-一応設定例の行があっても動きはしますが、見栄えは悪いです。
-）</p>
-<p>それぞれの棒読みちゃんの名前と場所を書いていきます。
-書き方は</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;棒読みちゃんの名前&gt;</span>棒読みちゃんのフォルダ<span class="nt">&lt;/棒読みちゃんの名前&gt;</span>
+<p>&lt;BouyomiChanLocations&gt;と&lt;/BouyomiChanLocations&gt;の間に、先程設定したそれぞれの棒読みちゃんのチャンネル名と場所を書いていきます。</p>
+<p>書き方は</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;棒読みちゃんのチャンネル名&gt;</span>棒読みちゃんのフォルダ<span class="nt">&lt;/棒読みちゃんのチャンネル名&gt;</span>
 </pre></div>
 </div>
 <p>です。</p>
 <ul class="simple">
-<li><p>棒読みちゃんの名前は、棒読みちゃんの設定ファイルに書いた名前です。</p></li>
+<li><p>棒読みちゃんの名前は、棒読みちゃんの基本設定で書いたチャンネル名です。</p></li>
 <li><p>棒読みちゃんのフォルダは、棒読みちゃんを展開したフォルダ名です。</p>
 <ul>
 <li><p>BouyomiChan.exeを右クリック-&gt;プロパティからコピーできます。</p></li>
@@ -307,6 +301,10 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p><img alt="BouyomiChan Property" src="../_images/bouyomichan-property.png" /></p>
+<p>（
+もともと書いてある2行はただの設定例です。
+必要ないので消してください。
+）</p>
 </div>
 <div class="section" id="id2">
 <h2>動作確認<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
