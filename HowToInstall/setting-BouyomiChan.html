@@ -287,35 +287,35 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>棒読みちゃんの設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>展開したら、以下の作業をそれぞれの棒読みちゃんで行います。</p>
 <ol class="simple">
-<li><p>一度起動して、全ての確認メッセージに答えた後、棒読みちゃんをを終了する</p>
+<li><p>棒読みちゃんの設定を開く</p>
 <ul class="simple">
-<li><p>“このプラグインを有効にしますか？”みたいなの</p>
-<ul>
-<li><p>今回は全部”いいえ”でOK</p></li>
+<li><p>“このプラグインを有効にしますか？”みたいなのは全部”いいえ”でOK</p></li>
 </ul>
 </li>
-<li><p>BouyomiChan.settingが生成される</p></li>
-</ul>
-</li>
-<li><p>BouyomiChan.settingをメモ帳で開く</p>
+<li><p>システム-&gt;アプリケーション連携を設定する</p>
 <ul class="simple">
-<li><p>棒読みちゃんの名前を決め、&lt;IpcChannelName&gt;BouyomiChan&lt;/IpcChannelName&gt;に記入する</p>
+<li><p>IpcClientChannelでの接続を受けるを<em>True</em>にする</p></li>
+<li><p>チャンネル名を設定する</p>
 <ul>
 <li><p>例) BouyomiChan<em>A</em></p></li>
-<li><p>必ずBouyomiChan<strong>以外</strong>に変更する</p></li>
+<li><p>チャンネル名は必ずBouyomiChan<strong>以外</strong>に変更する</p></li>
 </ul>
 </li>
-<li><p>以下の<em>true</em>を<em>false</em>に変更する</p>
+<li><p>以下の項目の<em>True</em>を<em>False</em>に変更する</p>
 <ul>
-<li><p>&lt;EnableSocket&gt;<em>true</em>&lt;/EnableSocket&gt;</p></li>
-<li><p>&lt;EnableHttpd&gt;<em>true</em>&lt;/EnableHttpd&gt;</p></li>
+<li><p>ローカルTCPサーバ機能を使う</p></li>
+<li><p>ローカルHTTPサーバ機能を使う</p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>保存する</p></li>
+<li><p>棒読みちゃんを閉じる</p>
+<ul class="simple">
+<li><p>MultiBouyomiSelectorの設定に移る前に、必ず全て閉じておく</p></li>
+</ul>
+</li>
 </ol>
-<p><img alt="BouyomiChan Setting" src="../_images/bouyomichan-channelsetting.png" /></p>
+<p><img alt="BouyomiChan Setting" src="../_images/bouyomichan-setting.png" /></p>
 <p>棒読みちゃんの声の設定はそれぞれで管理されています。
 BouyomiChanAは普通の声、BouyomiChanBは高い声のように設定しておくと聞き分けやすいでしょう。
 一度設定しておくと、次に起動したときにも同じ設定で喋ってくれます。</p>

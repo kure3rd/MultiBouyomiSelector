@@ -16,20 +16,20 @@
 
 展開したら、以下の作業をそれぞれの棒読みちゃんで行います。
 
-1. 一度起動して、全ての確認メッセージに答えた後、棒読みちゃんをを終了する
-    - "このプラグインを有効にしますか？"みたいなの
-        - 今回は全部"いいえ"でOK
-    - BouyomiChan.settingが生成される
-1. BouyomiChan.settingをメモ帳で開く
-    - 棒読みちゃんの名前を決め、\<IpcChannelName\>BouyomiChan\</IpcChannelName\>に記入する
+1. 棒読みちゃんの設定を開く
+    - "このプラグインを有効にしますか？"みたいなのは全部"いいえ"でOK
+1. システム->アプリケーション連携を設定する
+    - IpcClientChannelでの接続を受けるを*True*にする
+    - チャンネル名を設定する
         - 例) BouyomiChan*A*
-        - 必ずBouyomiChan**以外**に変更する
-    - 以下の*true*を*false*に変更する
-        - \<EnableSocket\>*true*\</EnableSocket\>
-        - \<EnableHttpd\>*true*\</EnableHttpd\>
-1. 保存する
+        - チャンネル名は必ずBouyomiChan**以外**に変更する
+    - 以下の項目の*True*を*False*に変更する
+        - ローカルTCPサーバ機能を使う
+        - ローカルHTTPサーバ機能を使う
+1. 棒読みちゃんを閉じる
+    - MultiBouyomiSelectorの設定に移る前に、必ず全て閉じておく
 
-![BouyomiChan Setting](../image/bouyomichan-channelsetting.png)
+![BouyomiChan Setting](../image/bouyomichan-setting.png)
 
 棒読みちゃんの声の設定はそれぞれで管理されています。
 BouyomiChanAは普通の声、BouyomiChanBは高い声のように設定しておくと聞き分けやすいでしょう。
