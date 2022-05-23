@@ -14,13 +14,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JTj2JN8sQgM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 こんな感じで動いています。
-```mermaid
-graph LR
-    ID1[Multi<br/>Comment<br/>Viewer] -- BouyomiChan Ch. --> ID2["Multi<br/>Bouyomi<br/>Selector<br/>(このプログラム)"]
-    ID2 -- BouyomiChanA Ch. --> ID3[棒読みちゃんA]
-    ID2 -- BouyomiChanB Ch. --> ID4[棒読みちゃんB]
-```
-
+![IPC diagram](image/mermaid-MBS.png)
 
 使うときは
 [ここ](https://github.com/kure3rd/MultiBouyomiSelector/releases/latest)
